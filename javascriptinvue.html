@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsinhtmlvue</title>
+    <script src="/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="increment">Click me</button>
+        <button v-on:click="count++">Click me</button>
+        <p>{{count > 10 ? "count greaterthan 10" : "count less than 10" }} {{name}}</p>
+        <p>Click Count {{count}}</p>
+        <input type="text" v-model="name">
+        <p>{{name}}</p>
+    </div>
+
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: "",
+            name: ""
+        },
+        methods: {
+            increment: function (event) {
+                this.count++;
+            }
+        }
+    });
+</script>
+
+</html>

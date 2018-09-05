@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="event">
+        <input type="button" value="Click Me" v-on:click="callCounter1">
+        <button v-on:click="callCounter(2,$event)">Click Me</button>
+        <p>Count = {{count}}</p>
+        <p v-on:mousemove="updateCoordinates">Coordinates X: {{X}} Y:{{Y}}
+            <span v-on:mousemove.stop>DEAD SPOT</span>
+        </p>
+        <input type="text" v-on:keyup.enter.escape.space="callAlert">
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#event',
+        data: {
+            count: 0,
+            X: 0,
+            Y: 0
+        },
+        methods: {
+            callCounter1: function (event) {
+                return this.count++;
+            },
+            callCounter: function (step, event) {
+                return this.count += step;
+            },
+            updateCoordinates: function (event) {
+                this.X = event.clientX;
+                this.Y = event.clientY;
+            },
+            callAlert: function () {
+                alert('key entered');
+            }
+        }
+    })
+</script>
+
+</html>
