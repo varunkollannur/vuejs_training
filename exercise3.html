@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise3</title>
+    <script src="/js/vue.js"></script>
+</head>
+<div id="exercise3">
+    <div>
+        <hr>
+        <p>set referance value <input type="text" @input="setreferancevalue"></p>
+        <p>Referance Value {{referance}}</p>
+        <hr>
+        <button @click="result += 5">increase 5</button>
+        <button @click="result += 1">increase 1</button>
+        <button @click="result -= 5">decrease 5</button>
+        <button @click="result -= 1">decrease 1</button>
+        <p>Result is : {{result}}</p>
+        <p>Status is : {{status}}</p>
+    </div>
+    <div>
+        <input type="text">
+        <p>{{ value }}</p>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#exercise3',
+        data: {
+            result: 0,
+            referance: 0
+        },
+        computed: {
+            status: function () {
+                return this.result == this.referance ? "Done" : "not same";
+            }
+        },
+        watch: {
+            result: function (value) {
+                var vm = this;
+                setTimeout(function () { vm.result = 0; }, 2000);
+            }
+        },
+        methods: {
+            setreferancevalue: function (event) {
+                this.referance = event.target.value;
+            }
+        }
+    })
+
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infiniteloop</title>
+    <script src="/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="result ++">Increase</button>
+        <p>{{result}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                result: 0
+            },
+            watch: {
+                result: function (value) {
+                    var vm = this;
+                    setTimeout(function () { vm.result = 0 }, 2000);
+                }
+            },
+            methods: {
+                reset: function () {
+                    this.result = 2;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic CSS1</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="demo"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+    </div>
+</body>
+
+<style>
+    .demo {
+        width: 100 px;
+        height: 100 px;
+        background-color: black;
+        display: inline-block;
+        margin: 10px;
+    }
+</style>
+<script>
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>
