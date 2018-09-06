@@ -12,9 +12,9 @@
 <body>
 
     <div id="app">
-        <div class="demo"></div>
-        <div class="demo"></div>
-        <div class="demo"></div>
+        <div class="demo" @click="attachRed=!attachRed" :class="{red:attachRed}"></div>
+        <div class="demo" @click="attachBlue=!attachBlue" :class="{blue:attachBlue}"></div>
+        <div class="demo" @click="attachGreen=!attachGreen" :class="{green:attachGreen}"></div>
     </div>
 </body>
 
@@ -26,10 +26,27 @@
         display: inline-block;
         margin: 10px;
     }
+
+    .red {
+        background-color: red;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    .blue {
+        background-color: blue;
+    }
 </style>
 <script>
     new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            attachRed: false,
+            attachBlue: false,
+            attachGreen: false
+        }
     })
 </script>
 

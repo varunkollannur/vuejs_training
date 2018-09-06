@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DynamicCSS</title>
+    <script src="/js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="demo" @click="attachRed=!attachRed" :class="callred"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            attachRed: false,
+            attachBlue: false,
+            attachGreen: false
+        },
+        computed: {
+            callred: function () {
+                return { red: this.attachRed };
+            }
+        }
+    })
+
+</script>
+<style>
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .red {
+        background-color: red;
+    }
+</style>
+
+</html>
